@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'com.harleyoconnor.raffle'
+version '1.0.0'
+mainClassName = "${group}.Main"
+
+repositories {
+    mavenCentral()
+    maven {
+        name 'Harley O\'Connor Maven'
+        url 'http://harleyoconnor.com/maven/'
+    }
+}
+
+dependencies {
+    // Gives access to javax.annotation.Nullable.
+    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
+    // Java Utilities - miscellaneous utility classes.
+    implementation group: 'com.harleyoconnor.javautilities', name: 'JavaUtilities', version: '0.0.3-b1'
+
+    // Allows for testing classes.
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+run {
+    // Allow use of standard input.
+    standardInput = System.in
+}
